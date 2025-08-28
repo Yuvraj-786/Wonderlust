@@ -1,0 +1,28 @@
+<% layout("./layouts/boilerplate") %>
+<style>
+    .row {
+        width: 80% !important;
+        margin-top: 2rem;
+        display: flex;
+        justify-content: center;
+    }
+
+    .alert {
+        width: 80%;
+        height: 200px !important; /* Fixed height for the alert box */
+        text-align: left;
+        font-size: 1.5rem;
+        padding: 1rem;
+        margin-top: 20px;
+        border-radius: 1rem;
+        height: auto; /* Ensures height adjusts dynamically */
+        display: inline-block; /* Shrinks to fit content */
+    }
+</style>
+
+<div class="row">
+    <div class="alert alert-danger" role="alert">
+       <h4 class="alert-heading">Error: <%= err.message %></h4>
+        <p><%= err.trace %>
+         </div>
+</div>

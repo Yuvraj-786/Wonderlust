@@ -1,0 +1,44 @@
+<% layout('./layouts/boilerplate') %>
+
+    <style>
+        .search-results {
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cards img{
+            max-height: 300px;
+        }
+
+        h2 {
+            margin: 1rem;
+            margin-left: 10%;
+        }
+    </style>
+  <h2>Search results for "<%= query %>"</h2>
+    <div class="container_2">
+      
+        <% if (results.length> 0) { %>
+            <% results.forEach(listing=> { %>
+                <div class="cards"> <!-- Responsive layout -->
+                    <a href="/listings/<%= listing._id %>" class="listing-link">
+                        <div class="card custom-card">
+                            <img src="<%= listing.image.url %>" class="card-img-top" alt="<%- listing.title %> image">
+                            <div class="card-body">
+                                <b>
+                                    <p class="card-title "><%- listing.title %></p>
+                                </b>
+                                <p class="card-text">&#8377; <%= listing.price.toLocaleString("en-IN") %> / night
+                                        <i class="tax-info">&nbsp; &nbsp; +18% GST</i>
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <% }); %>
+                    <% } else { %>
+                        <p>No listings found for "<%= query %>". Try a different keyword.</p>
+                        <% } %>
+
+    </div>
