@@ -51,7 +51,7 @@ app.use(methodOverride("_method"));
 async function main() {
   try {
     await mongoose.connect(process.env.ATLASDB_URL, {
-       serverSelectionTimeoutMS: 5000,
+      serverSelectionTimeoutMS: 5000,
       tls: true
     });
     console.log(" Database connected successfully");
@@ -103,6 +103,9 @@ async function main() {
       next();
     });
 
+    app.get("/", (req, res) => {
+      res.redirect("/listings");   
+    });
 
     // Routes
 
