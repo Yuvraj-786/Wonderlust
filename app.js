@@ -50,16 +50,15 @@ app.use(methodOverride("_method"));
 // 
 async function main() {
   try {
-    await mongoose.connect(dbUrl, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-      serverSelectionTimeoutMS: 5000,
+    await mongoose.connect(process.env.ATLASDB_URL, {
+       serverSelectionTimeoutMS: 5000,
+      tls: true
     });
     console.log(" Database connected successfully");
 
-   
+
     // Session Store
-   
+
     const store = MongoStore.create({
       mongoUrl: dbUrl,
       crypto: { secret: process.env.SECRET, },
@@ -85,18 +84,18 @@ async function main() {
     app.use(session(sessionOptions));
     app.use(flash());
 
-    
+
     // Passport Authentication
- 
+
     app.use(passport.initialize());
     app.use(passport.session());
     passport.use(new LocalStrategy(User.authenticate()));
     passport.serializeUser(User.serializeUser());
     passport.deserializeUser(User.deserializeUser());
 
-    
+
     // Middleware for Flash 
-    
+
     app.use((req, res, next) => {
       res.locals.success = req.flash("success");
       res.locals.error = req.flash("error");

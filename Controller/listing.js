@@ -40,7 +40,7 @@ module.exports.showListing = async (req, res) => {
         req.flash("error", "Listing does not exist.");
         return res.redirect("/listings"); // ✅ return added
     }
-    console.log(listing);
+
     res.render("show", { listing })
 };
 
