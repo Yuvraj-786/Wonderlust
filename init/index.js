@@ -1,19 +1,26 @@
-const mongoose = require("mongoose");
-require("dotenv").config();
+// Load env
+if (process.env.NODE_ENV !== "production") {
+  require("dotenv").config();
+}
 
-async function test() {
+const mongoose = require("mongoose");
+const Listing = require("../models/listing");
+const initData = require("./data");
+
+async function main() {
   try {
-    await mongoose.connect(process.env.ATLASDB_URL, {
-      ssl: true,
-      tls: true,
-      serverSelectionTimeoutMS: 5000,
-    });
-    console.log("✅ Connected to MongoDB Atlas!");
-    process.exit(0);
+    await mongoose.connect(process.env.ATLASDB_URL);
+    console.log("✅ Database connected");
+
+    await Listing.deleteMany({});
+    await Listing.insertMany(initData.data);
+
+    console.log("✅ Data seeded successfully");
+    process.exit();
   } catch (err) {
-    console.error("❌ Connection failed:", err);
+    console.error("❌ Error seeding data:", err);
     process.exit(1);
   }
 }
 
-test();
+main();

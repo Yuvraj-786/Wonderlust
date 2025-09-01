@@ -1,15 +1,69 @@
 <footer>
-    <div class="f-info">
-        <div class="f-info-socials">
-            <i class="fa-brands fa-instagram"></i>
-            <i class="fa-brands fa-square-facebook"></i>
-            <i class="fa-brands fa-linkedin-in"></i>
-        </div>
-        <div class=".f-info-brand"><i class="fa-regular fa-copyright"></i> Wonderlust Private Limited</div>
-        <div class="f-info-links">
-            <a href="/privacy">Privacy</a>
-            <a href="/terms">Terms</a>
-          
-        </div>
+  <div class="f-info">
+    <!-- Social icons -->
+    <div class="f-info-socials">
+      <a href="#"><i class="fa-brands fa-instagram"></i></a>
+      <a href="#"><i class="fa-brands fa-square-facebook"></i></a>
+      <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
     </div>
+
+    <!-- Brand -->
+    <div class="f-info-brand">
+      <i class="fa-regular fa-copyright"></i> 
+      Wonderlust Private Limited
+    </div>
+
+    <!-- Links -->
+    <div class="f-info-links">
+      <a href="/privacy">Privacy</a>
+      <a href="/terms">Terms</a><br>
+      <a href="#">Created By :</a>
+      <a href="#">Yuvraj Singh</a>
+    </div>
+  </div>
 </footer>
+
+
+<style>
+    footer {
+  background-color: #f8f9fa;  /* light gray */
+  padding: 20px 0;
+  margin-top: 30px;
+}
+
+.f-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+}
+
+.f-info-socials a {
+  color: #555;
+  margin: 0 10px;
+  font-size: 1.2rem;
+  transition: color 0.3s;
+}
+
+.f-info-socials a:hover {
+  color: #007bff; /* blue hover */
+}
+
+.f-info-brand {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.f-info-links a {
+  margin: 0 8px;
+  color: #555;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.f-info-links a:hover {
+  text-decoration: underline;
+}
+
+</style>

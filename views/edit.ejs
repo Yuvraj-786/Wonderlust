@@ -2,6 +2,7 @@
 
     <style>
         .edit-row {
+            width: 100%;
             margin-left: 0;
             margin-right: 0;
             display: flex;
@@ -10,7 +11,7 @@
         }
     </style>
     <div class="row">
-        <div class="col-8">
+        <div class="col-12">
             <form method="post" action="/listings/<%= listing._id %>?_method=put" novalidate class="needs-validation"
                 enctype="multipart/form-data">
                 <div class="form">
@@ -43,14 +44,14 @@
                     </div>
 
                     <div class="edit-row">
-                        <div class="mb-3 col-md-3">
+                        <div class="mb-3 col-12">
                             <label class="form-label">Price
                                 <input type="number" value="<%= listing.price %>" name="listing[price]"
                                     class="form-control" required>
                             </label>
                             <div class="invalid-feedback">Enter valid Price</div>
                         </div>
-                        <div class="mb-3 col-md-8">
+                        <div class="mb-3 col-12">
                             <label class="form-label">Country
                                 <input type="text" value="<%= listing.country %>" name="listing[country]"
                                     class="form-control" required>
@@ -88,7 +89,6 @@
 
                     <div>
                         <button type="submit" class="button">Update Listing</button>
-                        <button type="reset" class="button">Clear Form</button>
                     </div>
                 </div>
             </form>

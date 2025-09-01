@@ -94,11 +94,12 @@ module.exports.deleteListing = async (req, res) => {
 
 module.exports.searchResults = async (req, res) => {
   const { q } = req.query;
-if (!q || q.trim() === '') {
-  return res.render('search', {
+  // Handle empty or whitespace-only query
+ if (typeof q !== "string" || q.trim().length === 0) {
+  return res.render("search", {
     results: [],
-    query: '',
-    message: 'Please enter a search term.'
+    query: "",
+    message: "⚠️ Please enter a search term."
   });
 }
    const query = {

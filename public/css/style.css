@@ -72,7 +72,7 @@ footer {
 }
 
 .container_1 {
-    width: 100% !important;
+    width: 100%;
     margin: auto;
     display: flex;
     flex: 1;
@@ -81,27 +81,27 @@ footer {
 }
 
 .container_2 {
-    width: 90%;
-    margin-top: 1rem;
-    margin-bottom: 2rem;
+    width: 100%;
+    margin-top: 8px;
+    margin-bottom: 16px;
     margin-left: auto;
     margin-right: auto;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 2rem;
-
 }
 
 .cards {
-    border-radius: 16px;
+    border-radius: 1rem !important;
+    min-width: 25%;
 }
 
 /* index page */
 .card {
     border: none !important;
     box-shadow: none !important;
-
+    border-radius: 1rem !important;
 }
 
 .custom-card {
@@ -110,11 +110,11 @@ footer {
     /* added for spacing */
     margin: 0.5rem !important;
     margin-bottom: 2rem !important;
-    min-width: 30rem;
-    box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.5);
+
+    box-shadow: 8px 8px 10px rba(0, 0, 0, 0.5);
     backdrop-filter: blur(20px);
     background-color: rgba(142, 138, 138, 0.9);
-    border-radius: 0 0 1rem 1rem;
+    border-radius: 1rem !important;
     /* 90% opaque, 10% transparent */
     transition: all 0.3s ease;
     position: relative;
@@ -183,11 +183,13 @@ footer {
 
 
 .form {
-    width: 50vw;
     height: auto;
-    padding: 2rem;
-    margin: auto;
-
+    padding: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .form-control {
@@ -200,11 +202,11 @@ footer {
 
 .button {
     padding: 8px;
-    margin-right: 1rem;
+    margin: 0 1rem 0.5rem 0;
     color: rgb(255, 255, 255);
     border: 1px solid gray;
     border-radius: 10px;
-    background-color: rgb(73, 72, 72);
+    background-color: rgb(109, 108, 108);
 }
 
 .button:hover {
@@ -216,7 +218,7 @@ footer {
 /* show page */
 .main {
     padding: 20px;
-    width: 80%;
+    width: 100%;
     margin-left: auto;
     margin-right: auto;
 }
@@ -294,7 +296,7 @@ footer {
 }
 
 .row {
-
+    width: 80%;
     margin-left: auto;
     margin-right: auto;
 }
@@ -357,61 +359,15 @@ footer {
 }
 
 .mb-3-editImage img {
-    width: 300px !important;
-    height: 250px !important;
+    width: 50% !important;
+
 }
 
-.filters {
-    width: 80%;
-    margin-top: 1rem;
-    margin-left: auto;
-    margin-right: auto;
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.filter {
-    min-width: 50px;
-    margin: 0.8rem;
-    align-items: center !important;
-    text-align: center;
-    color: #222222;
-    opacity: 0.8;
-}
-
-.filter p {
-    font-size: 14px;
-}
-
-.filter i {
-    text-align: center;
-}
-
-
-.filter a {
-    text-decoration: none;
-}
-
-.filter:hover {
-    opacity: 1;
-    cursor: pointer;
-    color: #222222;
-}
 
 .tax-info {
     display: none;
 }
 
-.tax-toggle {
-    border-radius: 1rem;
-    height: 3.5rem;
-    align-items: center !important;
-    padding: 1rem;
-    margin-left: 2rem !important;
-    background-color: rgb(206, 203, 203);
-    display: flex;
-    flex-direction: row-reverse;
-}
 
 .btn-search {
     background-color: rgb(248, 143, 73);
@@ -435,3 +391,83 @@ footer {
     border-radius: 25px !important;
     border: 1px solid rgb(187, 186, 186);
 }
+
+.filters {
+    width: 80%;
+    margin-top: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    gap: 20px;
+    padding: 8px 12px;
+    scrollbar-width: thin;
+}
+
+.filters::-webkit-scrollbar {
+    height: 6px;
+}
+
+.filters>.filter {
+    flex: 0 0 auto;
+    min-width: 90px;
+    text-align: center;
+    opacity: 0.7;
+}
+
+.filter:hover {
+    opacity: 1;
+}
+
+.filters>.filter>a {
+    display: inline-block;
+    text-decoration: none;
+    color: inherit;
+}
+
+.tax-toggle {
+    width: 100px;
+    border-radius: 1rem;
+    height: 3.5rem;
+    align-items: center !important;
+    padding: 1rem;
+    margin-left: 2rem !important;
+    background-color: rgb(206, 203, 203);
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+#mobileSearchForm {
+    transition: all 0.3s ease-in-out;
+}
+
+#mobileSearchForm.show {
+    display: flex !important;
+}
+
+.mobile-input-search {
+  position: relative;
+  width: 50%;
+}
+
+#mobileSearchForm {
+    flex: 1;
+    /* input grows but doesn't overflow */
+}
+
+#mobileSearchForm .search-input {
+    width: 100%;
+    /* take full space */
+    min-width: 100px;
+    /* prevent too small */
+    max-width: 300px;
+    /* control max width */
+}
+
+.desktop-input-search {
+    margin-left: 30%;
+}
+
