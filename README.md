@@ -23,6 +23,8 @@ A full-stack travel listing platform inspired by Airbnb. Built with Node.js, Exp
 - **Image Hosting:** Cloudinary  
 - **Deployment:** Render + GitHub
 
+- Project Link: https://wonderlust-7pa3.onrender.com/listings
+
 ## 📦 Installation
 
 ```bash
